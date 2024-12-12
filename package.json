@@ -4,8 +4,9 @@
   "description": "A express.js app for learning",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon src/index.js"
   },
+  "type": "module",
   "keywords": [
     "express",
     "mongodb",
@@ -13,5 +14,8 @@
     "cors"
   ],
   "author": "Kishan Pitroda",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
 }
