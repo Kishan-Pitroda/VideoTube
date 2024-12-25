@@ -63,7 +63,7 @@ const updateTweet = asyncHandler(async (req, res) => {
   }
 
   if (!tweet.owner.equals(req.user._id)) {
-    throw new ApiError(404, "You are not authorized to perform this action");
+    throw new ApiError(403, "You are not authorized to perform this action");
   }
 
   const newTweet = await Tweet.findByIdAndUpdate(
@@ -99,7 +99,7 @@ const deleteTweet = asyncHandler(async (req, res) => {
   }
 
   if (!tweet.owner.equals(req.user._id)) {
-    throw new ApiError(404, "You are not authorized to perform this action");
+    throw new ApiError(403, "You are not authorized to perform this action");
   }
 
   const deletedTweet = await Tweet.findByIdAndDelete(tweetId);

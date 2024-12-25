@@ -157,7 +157,7 @@ const updateVideo = asyncHandler(async (req, res) => {
   }
 
   if (!video.owner.equals(req.user._id)) {
-    throw new ApiError(404, "You are not authorized to perform this action");
+    throw new ApiError(403, "You are not authorized to perform this action");
   }
 
   const deleteThumbnailResponse = await deleteFromCloudinary(
@@ -213,7 +213,7 @@ const deleteVideo = asyncHandler(async (req, res) => {
   }
 
   if (!video.owner.equals(req.user._id)) {
-    throw new ApiError(404, "You are not authorized to perform this action");
+    throw new ApiError(403, "You are not authorized to perform this action");
   }
 
   const cloudinaryDeletedVideo = await deleteFromCloudinary(
@@ -265,7 +265,7 @@ const togglePublishStatus = asyncHandler(async (req, res) => {
   }
 
   if (!video.owner.equals(req.user._id)) {
-    throw new ApiError(404, "You are not authorized to perform this action");
+    throw new ApiError(403, "You are not authorized to perform this action");
   }
 
   const modifiedVideo = await Video.findByIdAndUpdate(
